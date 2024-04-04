@@ -1,0 +1,15 @@
+.game-holder {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: -webkit-linear-gradient(#28326e, #9ae0ff);
+	background: linear-gradient(#28326e, #9ae0ff);
+    z-index: -1 !important;
+}
+
+.world {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}

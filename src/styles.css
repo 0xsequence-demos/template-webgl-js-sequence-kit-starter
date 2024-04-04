@@ -1,0 +1,22 @@
+.button {
+    background-color: blueviolet;
+    color: white;
+    width: 75px;
+    height: 30px;
+    box-shadow: 4px 4px 0px 0.1px white;
+}
+
+body {
+    background-color: grey;
+}
+
+h1 {
+    margin: 10px;
+    text-align: center;
+}
+
+img {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
