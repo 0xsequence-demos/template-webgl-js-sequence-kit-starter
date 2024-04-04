@@ -1,5 +1,5 @@
-# vanilla-js-sequence-kit-starter
-a minimal vanilla js starter repo for using react based sequence kit
+# template-webgl-js-sequence-kit-starter
+a minimal webgl js starter repo for using react based sequence kit
 
 ## features
 - webpack
