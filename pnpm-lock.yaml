@@ -8,6 +8,9 @@ dependencies:
   0xsequence:
     specifier: ^1.9.0
     version: 1.9.2(ethers@5.7.2)
+  '@0xsequence/indexer':
+    specifier: ^1.9.14
+    version: 1.9.14
   '@0xsequence/kit':
     specifier: 2.0.5-beta.8
     version: 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
@@ -20,9 +23,15 @@ dependencies:
   '@babel/preset-env':
     specifier: ^7.24.0
     version: 7.24.0(@babel/core@7.24.0)
+  '@picocss/pico':
+    specifier: ^2.0.6
+    version: 2.0.6
   '@tanstack/react-query':
     specifier: ^5.25.0
     version: 5.25.0(react@18.2.0)
+  async-mutex:
+    specifier: ^0.5.0
+    version: 0.5.0
   ethers:
     specifier: 5.7.2
     version: 5.7.2
@@ -32,6 +41,9 @@ dependencies:
   react:
     specifier: ^18.2.0
     version: 18.2.0
+  react-context-mutex:
+    specifier: ^2.1.1
+    version: 2.1.1(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -209,6 +221,10 @@ packages:
       - utf-8-validate
     dev: false
 
+  /@0xsequence/indexer@1.9.14:
+    resolution: {integrity: sha512-ISL+guT4gLYkBWxnjusPMJ7guargKWP2Dh54uBiGZXs0zaMGMXphSObXZaRT08eE2vjb7LLKWEXrqy8mAaADhw==}
+    dev: false
+
   /@0xsequence/indexer@1.9.2:
     resolution: {integrity: sha512-v50RMg6vom1D54eG3CYeAFYfaBnuSoGkAmHvnrwQSlcH2gWzN97W0Ww/RSXZkEpxFJ1agszeLDyCWqIIiISKug==}
     dev: false
@@ -264,7 +280,7 @@ packages:
       '@0xsequence/auth': 1.9.2(ethers@5.7.2)
       '@0xsequence/design-system': 1.2.5(framer-motion@8.5.5)(react-dom@18.2.0)(react@18.2.0)
       '@0xsequence/ethauth': 0.8.1(ethers@5.7.2)
-      '@0xsequence/indexer': 1.9.2
+      '@0xsequence/indexer': 1.9.14
       '@0xsequence/kit-connectors': 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
       '@0xsequence/metadata': 1.9.2
       '@0xsequence/network': 1.9.2(ethers@5.7.2)
@@ -3472,6 +3488,11 @@ packages:
       '@parcel/watcher-win32-x64': 2.4.1
     dev: false
 
+  /@picocss/pico@2.0.6:
+    resolution: {integrity: sha512-/d8qsykowelD6g8k8JYgmCagOIulCPHMEc2NC4u7OjmpQLmtSetLhEbt0j1n3fPNJVcrT84dRp0RfJBn3wJROA==}
+    engines: {node: '>=18.19.0'}
+    dev: false
+
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -6225,6 +6246,12 @@ packages:
 
   /async-mutex@0.2.6:
     resolution: {integrity: sha512-Hs4R+4SPgamu6rSGW8C7cV9gaWUKEHykfzCCvIRuaVv636Ju10ZdeUbvb4TBEW0INuq2DHZqXbK4Nd3yG4RaRw==}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
+  /async-mutex@0.5.0:
+    resolution: {integrity: sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==}
     dependencies:
       tslib: 2.6.2
     dev: false
@@ -9888,6 +9915,14 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-context-mutex@2.1.1(react@18.2.0):
+    resolution: {integrity: sha512-ypYpFnSSPsHW5TezqkFjFT2RExzH+2b3opWsVtcNehouGE30gca3yVhy/ETWzilxiTJcrhoMxMbKLq5JwJ+CoA==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-devtools-core@4.28.5:

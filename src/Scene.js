@@ -1,10 +1,13 @@
 import { Group, Color, MeshPhongMaterial, TetrahedronGeometry, Mesh } from 'three';
 import { gsap } from "gsap";
 import Airplane from './Game/Airplane.js';
-import BasicLights from './Lights.js';
+import BasicLights from './Game/Lights.js';
 import Sea from './Backgrounds/Sea.js';
 import Sky from './Backgrounds/Sky.js';
 import Enemy from './Game/Enemy.js';
+
+import { SequenceController } from './API/SequenceController.js';
+import { SequenceIndexer } from '@0xsequence/indexer';
 
 const GameModes = {
 	Intro: "intro",
@@ -18,10 +21,10 @@ export default class MainScene extends Group {
   constructor() {
     super();
 
+    this.sequenceController = new SequenceController(this);
+
     this.game_mode = GameModes.Intro;
     this.message_box = document.getElementById("replayMessage");
-    this.distance_box = document.getElementById("distValue");
-    this.score_box = document.getElementById("score");
 
     this.sea = new Sea();
     this.sky = new Sky();
@@ -118,58 +121,9 @@ export default class MainScene extends Group {
 	}
 
   tick(deltaTime, mousePos) {
-    if (this.game_mode === GameModes.Paused) return;
-
     this.sky.rotation.z += deltaTime * this.game.speed / 2;
-
     this.sea.tick(deltaTime, this.game.speed);
-
-    if (this.game_mode === GameModes.Playing) {
-      this.updatePlane(deltaTime, mousePos);
-      this.updateDistance(deltaTime);
-      
-      if (Math.floor(this.game.distance) % this.game.distanceForEnemiesSpawn == 0 && Math.floor(this.game.distance) > this.game.enemyLastSpawn) {
-        this.game.enemyLastSpawn = Math.floor(this.game.distance);
-        this.spawnEnemies(4);
-      }
-
-      this.updateSpeed(deltaTime);
-    } else if (this.game_mode === GameModes.GameEnding) {
-      this.game.speed *= .99;
-      this.airplane.rotation.z += (-Math.PI/2 - this.airplane.rotation.z) * 0.0002 * deltaTime;
-      this.airplane.rotation.x += 0.0003 * deltaTime;
-      this.game.planeFallSpeed *= 1.05;
-      this.airplane.position.y -= this.game.planeFallSpeed * deltaTime;
-
-      if (this.airplane.position.y < -200) {
-        this.switchGameMode(GameModes.GameOver);
-      }
-    } else if (this.game_mode !== GameModes.GameOver) {
-      this.updatePlane(deltaTime, mousePos);
-    }
-
-    for (const [index, enemy] of this.enemies.entries()) {
-      enemy.tick(deltaTime);
-
-      enemy.angle += deltaTime * this.game.speed;
-
-      if (enemy.angle > Math.PI * 2) {
-        enemy.angle -= Math.PI * 2;
-      }
-
-      enemy.position.x = Math.cos(enemy.angle) * enemy.distance;
-      enemy.position.y = -this.game.seaRadius + Math.sin(enemy.angle) * enemy.distance;
-
-      if (this.collideCheck(this.airplane, enemy, this.game.enemyDistanceTolerance)) {
-        this.explodeEnemy(enemy);
-        console.log(enemy.name);
-        if(enemy.name == 0) this.firstPylonCrash()
-        this.switchGameMode(GameModes.GameEnding);
-      } else if (enemy.angle > Math.PI) {
-        this.remove(enemy);
-        this.enemies.delete(enemy);
-      }
-    }
+    this.updatePlane(deltaTime, mousePos);
   }
 
   updatePlane(deltaTime, mousePos) {
@@ -189,26 +143,6 @@ export default class MainScene extends Group {
     this.airplane.rotation.x = (this.airplane.position.y - targetY) * 0.0064;
 
     this.airplane.tick(deltaTime);
-  }
-
-  spawnEnemies(count) {
-    for (let i = 0; i < count; i++) {
-      const enemy = new Enemy(this.enemiesTotal);
-      this.enemiesTotal += 1
-      enemy.angle = -(i * 0.1);
-      enemy.distance = this.game.seaRadius + this.game.planeDefaultHeight + (-1 + Math.random() * 2) * (this.game.planeAmpHeight - 20);
-      enemy.position.x = Math.cos(enemy.angle) * enemy.distance;
-      enemy.position.y = -this.game.seaRadius + Math.sin(enemy.angle) * enemy.distance;
-      
-      this.add(enemy);
-      this.enemies.add(enemy);
-    }
-  }
-
-  explodeEnemy(enemy) {
-		this.spawnParticles(enemy.position.clone(), 15, new Color("red"), 3);
-		this.remove(enemy);
-    this.enemies.delete(enemy);
   }
 
   spawnParticles(pos, count, color, scale) {
@@ -247,5 +181,34 @@ export default class MainScene extends Group {
     var dt = tmax-tmin;
     var tv = tmin + (pc*dt);
     return tv;
+  }
+
+  async login() {
+    document.getElementById('login').style.display = 'none'
+    document.getElementById('mintBtn').style.display = 'flex'
+    document.getElementById('mintAchievementBtn').style.display = 'flex'
+
+    // check for achievement balance
+    this.indexer = new SequenceIndexer(
+        'https://arbitrum-sepolia-indexer.sequence.app',
+        ENV.projectAccessKey
+      );
+
+    const response = await this.indexer.getTokenBalances({
+        accountAddress: this.sequenceController.walletAddress,
+        contractAddress: '0x856de99d7647fb7f1d0f60a04c08340db3875340', // replace with your achievements contract
+    })
+    
+    if(response.balances.length > 0){
+      console.log(response) 
+      document.getElementById('burnBtn').style.display = 'flex'
+    }
+  }
+
+  logout(){
+    document.getElementById('login').style.display = 'block'
+    document.getElementById('mintBtn').style.display = 'none'
+    document.getElementById('mintAchievementBtn').style.display = 'none'
+    document.getElementById('burnBtn').style.display = 'none'
   }
 }

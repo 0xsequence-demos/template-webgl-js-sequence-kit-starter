@@ -11,7 +11,7 @@ import { arbitrumSepolia, Chain } from 'wagmi/chains'
 
 const queryClient = new QueryClient() 
 
-function App() {
+function App(props) {
   const chains = [arbitrumSepolia]
   const projectAccessKey = ENV.projectAccessKey
 
@@ -38,7 +38,7 @@ function App() {
     <WagmiConfig config={config}>
         <QueryClientProvider client={queryClient}> 
           <KitProvider config={{defaultTheme: 'dark'}}>
-            <Login/>
+            <Login scene={props.scene}/>
           </KitProvider>
         </QueryClientProvider>
     </WagmiConfig>

@@ -2,11 +2,10 @@ import React from 'react'
 import * as ReactDOM from 'react-dom/client';
 import App from './react/App.jsx'
 import './styles.css'
-import './game.css'
 
 import { WebGLRenderer, PerspectiveCamera, Scene, Fog } from 'three';
 import MainScene from './Scene.js';
-
+const indexerDelay = 2500;
 // react render
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -59,6 +58,38 @@ const windowResizeHanlder = () => {
 document.body.style.margin = 0;
 document.getElementById("world").appendChild( renderer.domElement );
 
+function handleMouseUp(event) {
+  window.setOpenConnectModal()
+}
+
+
+window.mint = () => {
+  const tokenID = 0
+  mainScene.sequenceController.callContract(tokenID, false, (res) => {
+    console.log(res)
+    mainScene.sequenceController.fetchTokensFromMint(tokenID)
+  })
+}
+
+window.mintPlane = () => {
+  const tokenID = 1
+  mainScene.sequenceController.callContract(tokenID, true, (res) => {
+    console.log(res)
+    mainScene.sequenceController.fetchPlaneTokens(tokenID)
+  })
+}
+
+window.burn = () => {
+  const tokenID = 0
+  mainScene.sequenceController.burnToken(tokenID, (res) => {
+    mainScene.sequenceController.fetchTokensFromBurn(tokenID)
+  })
+}
+
+document
+  .getElementById('world')
+  .addEventListener('mouseup', handleMouseUp, false);
+
 root.render(
-    <App/>
+    <App scene={mainScene}/>
 );
