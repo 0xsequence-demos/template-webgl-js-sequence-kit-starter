@@ -56,3 +56,4 @@ const windowResizeHanlder = () => {
 // dom
 document.body.style.margin = 0;
 document.getElementById("world").appendChild( renderer.domElement );
+

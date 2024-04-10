@@ -90,3 +90,7 @@ img {
     cursor: pointer;
     transition: background-color var(--transition),border-color var(--transition),color var(--transition),box-shadow var(--transition);
 }
+
+#root {
+    position: absolute;
+}
