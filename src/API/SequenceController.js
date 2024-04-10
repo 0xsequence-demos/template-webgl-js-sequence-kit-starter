@@ -8,7 +8,7 @@ class SequenceController {
     this.scene = scene
     this.indexer = new SequenceIndexer(
       'https://arbitrum-sepolia-indexer.sequence.app',
-      ENV.projectAccessKey
+      process.env.PROJECT_ACCESS_KEY
     );
   }
 
@@ -18,11 +18,11 @@ class SequenceController {
     this.sendBurnToken = sendTransactionBurn;
   }
 
-  async fetchTokensFromMint(tokenID) {
+  async fetchTokensFromAchievementMint(tokenID) {
     // check for achievement balance
     this.indexer = new SequenceIndexer(
       'https://arbitrum-sepolia-indexer.sequence.app',
-      ENV.projectAccessKey
+      process.env.PROJECT_ACCESS_KEY
     );
     const wait = (ms) => new Promise((res) => setTimeout(res, ms))
     let hasFoundPlane = false
@@ -36,7 +36,6 @@ class SequenceController {
       for(let i = 0; i < response.balances.length; i++){
         if(response.balances[i].tokenID == String(tokenID)){
           hasFoundPlane = true
-          console.log('appearing burn')
           document.getElementById('burnBtn').style.display = 'flex'
         }
       }
@@ -44,10 +43,9 @@ class SequenceController {
   }
 
   async fetchTokensFromBurn(tokenID){
-    // check for achievement balance
     this.indexer = new SequenceIndexer(
         'https://arbitrum-sepolia-indexer.sequence.app',
-        ENV.projectAccessKey
+        process.env.PROJECT_ACCESS_KEY
       );
       const wait = (ms) => new Promise((res) => setTimeout(res, ms))
       let hasBeenBurned = false
@@ -69,11 +67,10 @@ class SequenceController {
   } 
 
   async fetchPlaneTokens(){
-    // check for achievement balance
     this.indexer = new SequenceIndexer(
         'https://arbitrum-sepolia-indexer.sequence.app',
-        ENV.projectAccessKey
-      );
+        process.env.PROJECT_ACCESS_KEY
+    );
 
     const wait = (ms) => new Promise((res) => setTimeout(res, ms))
     let hasFoundPlane = false

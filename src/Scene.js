@@ -191,7 +191,7 @@ export default class MainScene extends Group {
     // check for achievement balance
     this.indexer = new SequenceIndexer(
         'https://arbitrum-sepolia-indexer.sequence.app',
-        ENV.projectAccessKey
+        process.env.PROJECT_ACCESS_KEY
       );
 
     const response = await this.indexer.getTokenBalances({

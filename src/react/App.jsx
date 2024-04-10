@@ -13,10 +13,10 @@ const queryClient = new QueryClient()
 
 function App(props) {
   const chains = [arbitrumSepolia]
-  const projectAccessKey = ENV.projectAccessKey
+  const projectAccessKey = process.env.PROJECT_ACCESS_KEY
 
   const connectors = getDefaultConnectors({
-    walletConnectProjectId: ENV.walletConnectId,
+    walletConnectProjectId: process.env.WALLET_CONNECT_ID,
     defaultChainId: 421614,
     appName: 'demo app',
     projectAccessKey

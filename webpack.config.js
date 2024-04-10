@@ -1,9 +1,9 @@
 const path = require('path');
 const pkg = require('./package.json');
-const {ENV} = require('./env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const buildPath = './build/';
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -44,9 +44,7 @@ module.exports = {
       'title': 'vanilla js sequence kit starter',
       'template': './src/index.html'
     }),
-    new webpack.DefinePlugin({
-      'ENV': JSON.stringify(ENV),
-    }),
+    new Dotenv()
   ],
   resolve: {
     fallback: {

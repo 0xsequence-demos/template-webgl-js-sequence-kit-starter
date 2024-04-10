@@ -58,16 +58,11 @@ const windowResizeHanlder = () => {
 document.body.style.margin = 0;
 document.getElementById("world").appendChild( renderer.domElement );
 
-function handleMouseUp(event) {
-  window.setOpenConnectModal()
-}
 
-
-window.mint = () => {
+window.mintAchievement = () => {
   const tokenID = 0
   mainScene.sequenceController.callContract(tokenID, false, (res) => {
-    console.log(res)
-    mainScene.sequenceController.fetchTokensFromMint(tokenID)
+    mainScene.sequenceController.fetchTokensFromAchievementMint(tokenID)
   })
 }
 
@@ -84,6 +79,10 @@ window.burn = () => {
   mainScene.sequenceController.burnToken(tokenID, (res) => {
     mainScene.sequenceController.fetchTokensFromBurn(tokenID)
   })
+}
+
+function handleMouseUp(event) {
+  window.setOpenConnectModal()
 }
 
 document

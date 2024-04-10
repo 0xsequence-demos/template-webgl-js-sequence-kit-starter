@@ -20,11 +20,11 @@ function Login(props) {
     const mutexBurn = new MutexRunner('sendMutexBurn');
     const { setOpenConnectModal } = useOpenConnectModal()
     const { data: walletClient } = useWalletClient();
-
+    const { data: txnData, sendTransaction, isLoading: isSendTxnLoading } = useSendTransaction();
     const { isConnected } = useAccount()
+
     const {disconnect} = useDisconnect()
 
-    const { data: txnData, sendTransaction, isLoading: isSendTxnLoading } = useSendTransaction();
 
     const onClick = () => {
         setOpenConnectModal(true)
@@ -43,7 +43,7 @@ function Login(props) {
             // check for achievement balance
             const indexer = new SequenceIndexer(
                 'https://arbitrum-sepolia-indexer.sequence.app',
-                ENV.projectAccessKey
+                process.env.PROJECT_ACCESS_KEY
             );
 
             const response = await indexer.getTokenBalances({
@@ -72,7 +72,7 @@ function Login(props) {
         } else {
             console.log('burn in progress')
         }
-      };
+    };
 
     useEffect(() => {
         if(txnData && burnCallback && mutexBurn.isLocked()) {
