@@ -6,6 +6,7 @@
     background: linear-gradient(#28326e, #9ae0ff);
     z-index: -1 !important;
 }
+
 .world {
     position: absolute;
     overflow: hidden;

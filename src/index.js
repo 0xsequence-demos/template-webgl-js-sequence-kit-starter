@@ -1,6 +1,5 @@
 import React from 'react'
 import * as ReactDOM from 'react-dom/client';
-import App from './react/App.jsx'
 import './styles.css'
 
 import { WebGLRenderer, PerspectiveCamera, Scene, Fog } from 'three';
@@ -57,38 +56,3 @@ const windowResizeHanlder = () => {
 // dom
 document.body.style.margin = 0;
 document.getElementById("world").appendChild( renderer.domElement );
-
-
-window.mintAchievement = () => {
-  const tokenID = 0
-  mainScene.sequenceController.callContract(tokenID, false, (res) => {
-    mainScene.sequenceController.fetchTokensFromAchievementMint(tokenID)
-  })
-}
-
-window.mintPlane = () => {
-  const tokenID = 1
-  mainScene.sequenceController.callContract(tokenID, true, (res) => {
-    console.log(res)
-    mainScene.sequenceController.fetchPlaneTokens(tokenID)
-  })
-}
-
-window.burn = () => {
-  const tokenID = 0
-  mainScene.sequenceController.burnToken(tokenID, (res) => {
-    mainScene.sequenceController.fetchTokensFromBurn(tokenID)
-  })
-}
-
-function handleMouseUp(event) {
-  window.setOpenConnectModal()
-}
-
-document
-  .getElementById('world')
-  .addEventListener('mouseup', handleMouseUp, false);
-
-root.render(
-    <App scene={mainScene}/>
-);

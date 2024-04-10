@@ -13,10 +13,10 @@ dependencies:
     version: 1.9.14
   '@0xsequence/kit':
     specifier: 2.0.5-beta.8
-    version: 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
+    version: 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7)
   '@0xsequence/kit-connectors':
     specifier: 2.0.5-beta.8
-    version: 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
+    version: 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7)
   '@babel/core':
     specifier: ^7.24.0
     version: 7.24.0
@@ -232,7 +232,7 @@ packages:
     resolution: {integrity: sha512-v50RMg6vom1D54eG3CYeAFYfaBnuSoGkAmHvnrwQSlcH2gWzN97W0Ww/RSXZkEpxFJ1agszeLDyCWqIIiISKug==}
     dev: false
 
-  /@0xsequence/kit-connectors@2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7):
+  /@0xsequence/kit-connectors@2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7):
     resolution: {integrity: sha512-lrjHHnxIEpS6jEGjLojeP81RqCyMLCAlgaHIQiy3pmcsLZQ7b6PKNVa/yCd07erWZTfMk8OrP7lqm0+7+NlpoA==}
     peerDependencies:
       0xsequence: '>=1.9.0'
@@ -247,7 +247,7 @@ packages:
     dependencies:
       0xsequence: 1.9.2(ethers@5.7.2)
       '@0xsequence/design-system': 1.2.5(framer-motion@8.5.5)(react-dom@18.2.0)(react@18.2.0)
-      '@0xsequence/kit': 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
+      '@0xsequence/kit': 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7)
       '@0xsequence/provider': 1.9.2(ethers@5.7.2)
       '@0xsequence/waas': 1.9.2(ethers@5.7.2)
       '@0xsequence/waas-ethers': 1.9.2(ethers@5.7.2)
@@ -256,7 +256,7 @@ packages:
       react: 18.2.0
       react-apple-signin-auth: 1.1.0(react-dom@18.2.0)(react@18.2.0)
       react-dom: 18.2.0(react@18.2.0)
-      uuid: 8.3.2
+      uuid: 9.0.1
       viem: 2.7.19
       wagmi: 2.5.7(@tanstack/react-query@5.25.0)(react-dom@18.2.0)(react-native@0.73.5)(react@18.2.0)(viem@2.7.19)
     transitivePeerDependencies:
@@ -265,7 +265,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@0xsequence/kit@2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7):
+  /@0xsequence/kit@2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/waas@1.9.2)(@react-oauth/google@0.12.1)(ethers@5.7.2)(react-apple-signin-auth@1.1.0)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7):
     resolution: {integrity: sha512-IfjE/GszRGbbYwKxv5ZchlMpjPBgqimWrOhIKgLhSE1CNFWDm2b/sCbjLFcP0FIROy5LhkOS+2mVQA7dENUz5A==}
     peerDependencies:
       0xsequence: '>=1.9.0'
@@ -284,7 +284,7 @@ packages:
       '@0xsequence/design-system': 1.2.5(framer-motion@8.5.5)(react-dom@18.2.0)(react@18.2.0)
       '@0xsequence/ethauth': 0.8.1(ethers@5.7.2)
       '@0xsequence/indexer': 1.9.14
-      '@0xsequence/kit-connectors': 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@8.3.2)(viem@2.7.19)(wagmi@2.5.7)
+      '@0xsequence/kit-connectors': 2.0.5-beta.8(0xsequence@1.9.2)(@0xsequence/design-system@1.2.5)(@0xsequence/kit@2.0.5-beta.8)(ethers@5.7.2)(react-dom@18.2.0)(react@18.2.0)(uuid@9.0.1)(viem@2.7.19)(wagmi@2.5.7)
       '@0xsequence/metadata': 1.9.2
       '@0xsequence/network': 1.9.2(ethers@5.7.2)
       '@0xsequence/provider': 1.9.2(ethers@5.7.2)
@@ -11193,6 +11193,11 @@ packages:
   /uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: false
 
   /valtio@1.11.2(react@18.2.0):
     resolution: {integrity: sha512-1XfIxnUXzyswPAPXo1P3Pdx2mq/pIqZICkWN60Hby0d9Iqb+MEIpqgYVlbflvHdrp2YR/q3jyKWRPJJ100yxaw==}
