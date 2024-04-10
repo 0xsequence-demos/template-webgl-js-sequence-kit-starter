@@ -20,10 +20,6 @@ class SequenceController {
 
   async fetchTokensFromAchievementMint(tokenID) {
     // check for achievement balance
-    this.indexer = new SequenceIndexer(
-      'https://arbitrum-sepolia-indexer.sequence.app',
-      process.env.PROJECT_ACCESS_KEY
-    );
     const wait = (ms) => new Promise((res) => setTimeout(res, ms))
     let hasFoundPlane = false
     let tokenIDs = []
@@ -43,10 +39,6 @@ class SequenceController {
   }
 
   async fetchTokensFromBurn(tokenID){
-    this.indexer = new SequenceIndexer(
-        'https://arbitrum-sepolia-indexer.sequence.app',
-        process.env.PROJECT_ACCESS_KEY
-      );
       const wait = (ms) => new Promise((res) => setTimeout(res, ms))
       let hasBeenBurned = false
       while(!hasBeenBurned) {
@@ -67,10 +59,6 @@ class SequenceController {
   } 
 
   async fetchPlaneTokens(){
-    this.indexer = new SequenceIndexer(
-        'https://arbitrum-sepolia-indexer.sequence.app',
-        process.env.PROJECT_ACCESS_KEY
-    );
 
     const wait = (ms) => new Promise((res) => setTimeout(res, ms))
     let hasFoundPlane = false
