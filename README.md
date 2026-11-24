@@ -1,3 +1,10 @@
+<!-- archived-repository-notice -->
+> [!WARNING]
+> **This demo is archived and no longer maintained.**
+>
+> It was built against Sequence APIs and SDKs that may have changed or been
+> retired, so it may no longer run. It is kept here for reference only.
+
 # template-webgl-js-sequence-kit-starter
 a minimal webgl js starter repo for using react based sequence kit
 
